@@ -1,0 +1,21 @@
+valgrind --leak-check=full cargo test --tests >> artifacts/valgrind-test.txt
+==3142692== Memcheck, a memory error detector
+==3142692== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==3142692== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==3142692== Command: cargo test --tests
+==3142692==
+warning: unused import: `std::sync::Arc`
+ --> src/concurrency.rs:2:5
+  |
+2 | use std::sync::Arc;
+  |     ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `reference-app` (lib) generated 1 warning (run `cargo fix --lib -p reference-app` to apply 1 suggestion)
+warning: `reference-app` (lib test) generated 1 warning (1 duplicate)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/reference_app-e4b02bcd08386c61)
+     Running unittests src/bin/demo.rs (target/debug/deps/demo-1efe159fc66a8cff)
+     Running tests/integration.rs (target/debug/deps/integration-a5c8257c3b039a1f)
+
